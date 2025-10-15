@@ -20,7 +20,30 @@
     </header>
 
     <main>
-        <div class="app-box">
+
+         <div class="app-box">
+            <h2>Минт токена MyCryptoFinance (MCF)</h2>
+            <div id="mintForm" class="hidden">
+                <div class="calculator">
+                    <button id="addTokenButton" onclick="addTokenToMetamask()" style="margin-bottom: 20px;">
+                        Добавить Токен MCF в Кошелек
+                    </button>
+                    <h4>Калькулятор: ETH в MCF</h4>
+                    <input type="number" id="ethAmount" placeholder="Введите сумму ETH" oninput="calculateMcfForEth()">
+                    <p id="mcfResult">Вы получите: 0 MCF</p>
+                </div>
+
+                <h4>Сумма для минта</h4>
+                <input type="number" id="mintAmount" placeholder="Количество MCF" min="1" required oninput="updateCost()">
+                <p id="costDisplay">Стоимость: 0 ETH</p>
+                
+                <button id="mintButton" class="button-mint" onclick="mintTokens()">Заминтить MCF</button>
+            </div>
+            <p id="mintStatus">Нажмите "Подключить кошелек"</p>
+        </div>
+
+        
+          <div class="app-box">
             <h2>Стейкинг токена MCF</h2>
             <div id="stakingForm" class="hidden">
                 <p>Ваш MCF баланс: <span id="mcfBalanceDisplay">...</span> MCF</p>
@@ -51,7 +74,7 @@
     </div>
 </div>
 
-                <h4>Операции</h4>
+               <h4>Операции</h4>
                 <input type="number" id="stakeAmount" placeholder="Количество MCF для стейкинга" min="1">
                 <select id="stakeTier">
                     <option value="0">Гибкий (10.5% APY)</option>
@@ -66,29 +89,6 @@
                 <!-- <button class="button-claim" onclick="claimRewards()">Забрать награду (Claim)</button> -->
             </div>
             <p id="stakingStatus">Нажмите "Подключить кошелек"</p>
-        </div>
-
-        <div class="app-box">
-            <h2>Минт токена MyCryptoFinance (MCF)</h2>
-            <div id="mintForm" class="hidden">
-                <div class="calculator">
-                    <button id="addTokenButton" onclick="addTokenToMetamask()" style="margin-bottom: 20px;">
-                        Добавить Токен MCF в Кошелек
-                    </button>
-                    <h4>Калькулятор: ETH в MCF</h4>
-                    <input type="number" id="ethAmount" placeholder="Введите сумму ETH" oninput="calculateMcfForEth()">
-                    <p id="mcfResult">Вы получите: 0 MCF</p>
-                </div>
-
-                
-
-                <h4>Сумма для минта</h4>
-                <input type="number" id="mintAmount" placeholder="Количество MCF" min="1" required oninput="updateCost()">
-                <p id="costDisplay">Стоимость: 0 ETH</p>
-                
-                <button id="mintButton" class="button-mint" onclick="mintTokens()">Заминтить MCF</button>
-            </div>
-            <p id="mintStatus">Нажмите "Подключить кошелек"</p>
         </div>
     </main>
 
@@ -817,3 +817,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 
 </html>
+
